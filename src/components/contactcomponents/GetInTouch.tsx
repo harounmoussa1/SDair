@@ -1,0 +1,63 @@
+import {
+  Text,
+  Card,
+  CardHeader,
+  CardBody,
+  Heading,
+  Stack,
+  Input,
+} from "@chakra-ui/react";
+
+import { SubmitHandler, useForm } from "react-hook-form";
+
+interface IFormInput {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  notes: string;
+}
+
+const GetInTouch = () => {
+  const { register, handleSubmit } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+
+  return (
+    <Card
+      className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+      backgroundColor="white"
+      color="white"
+      p="6"
+    >
+      <CardHeader>
+        <Heading fontSize={{ base: "30px", md: "40px", lg: "45px" }} color="#004F87">
+          Get In Touch With Us
+        </Heading>
+        <Text fontSize="md" color="#5A7CA9">
+          AND WE WILL GET BACK TO YOU
+        </Text>
+      </CardHeader>
+
+      <CardBody>
+        <Stack spacing="20px">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("firstName")} placeholder="First Name" />
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("lastName")} placeholder="Last Name" />
+              </div>
+
+              <Input backgroundColor="#F4F4F4" h="51px" {...register("email")} placeholder="Email" />
+              <Input backgroundColor="#F4F4F4" h="51px" {...register("subject")} placeholder="Subject" />
+              <Input backgroundColor="#F4F4F4" h="127px" {...register("notes")} placeholder="Notes" />
+
+              <Input backgroundColor="#5A7CA9" w="135px" h="51px" type="submit" />
+            </div>
+          </form>
+        </Stack>
+      </CardBody>
+    </Card>
+  );
+};
+
+export default GetInTouch;
