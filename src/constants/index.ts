@@ -5,11 +5,10 @@ En outre, nous offrons la possibilité de personnaliser vos gaines textiles avec
 Bienvenue chez SDair Tunisie, où innovation, qualité et fiabilité se rencontrent pour répondre à vos besoins.`;
 
 export const ABOUT_TEXT = `SDair (SARL), fondée en août 2014, est la première société tunisienne spécialisée dans la fabrication de gaines textiles et de manchettes souples.
-Son gérant, BEN LASSOUED Med Riadh, ingénieur textile avec plus de 10 ans d'expérience dans le secteur du textile et 15 ans dans la diffusion de l’air, est un expert reconnu dans la fabrication de gaines textiles et de manchettes souples. Formé en management de la qualité (ISO 9001) et en PNL, il met son savoir-faire et son expertise au service de ses clients.
-Installée à Jemmel, dans le gouvernorat de Monastir, SDair collabore principalement avec des installateurs et des revendeurs spécialisés en climatisation et diffusion de l’air.
-Nous utilisons des tissus classés M0, M1 ou non classés selon la résistance de la matière en question au feu, disponibles dans une large gamme de couleurs, notamment gris, blanc, bleu royal, vert, jaune, et bien d’autres sur commande. Chaque produit est conçu en interne grâce à des logiciels de calcul avancés, garantissant ainsi une fabrication fiable et de haute qualité.
-`;
 
+Installée à Jemmel, dans le gouvernorat de Monastir, SDair collabore principalement avec des installateurs et des revendeurs spécialisés en climatisation et diffusion de l’air.
+`;
+export const Fondateur_Presentation ='Ben Lassoued Mohamed Riadh, ingénieur textile doté d’une dizaine d’années d’expérience dans le domaine du textile \n et 8 ans dans le domaine de la diffusion de l’air et principalement dans la fabrication des gaines textiles et des manchettes souples, a suivi des formations de management de la qualité (ISO 9001) et du PNL, met son savoir-faire au service de ces clients.';
 export const products = [
   {
     id: 1,

@@ -1,4 +1,4 @@
-import { Center, Box, Heading } from "@chakra-ui/react";
+import {  Box, Heading } from "@chakra-ui/react";
 import ProductsSlide from "./ProductsSlide";
 import { products } from "../../constants";
 

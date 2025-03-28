@@ -1,4 +1,4 @@
-import { Box, Button, Center,Flex,Link,Text } from "@chakra-ui/react"
+import { Box,  Center,Flex,Link,Text } from "@chakra-ui/react"
 import landingpageimg from "../../assets/landingpageimg.png"
 
 
