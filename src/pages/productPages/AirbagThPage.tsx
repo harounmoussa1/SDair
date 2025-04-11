@@ -1,5 +1,5 @@
-import ug1 from "../../assets/filtreUniteGainable/ug1.jpg"
-import ug2 from "../../assets/filtreUniteGainable/ug2.jpg"
+import airbagth1 from "../../assets/airbagImg/airbagth1.jpeg"
+import airbagth2 from "../../assets/airbagImg/airbagth2.jpeg"
 import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import ProductDetail from '../../components/productdetailpages/ProductDetailPage';
 import ProductInfo from '../../components/productdetailpages/ProductInfo';
@@ -7,7 +7,7 @@ import ProductsSlide from '../../components/HomeComponent/ProductsSlide';
 import { products } from '../../constants';
 
 const AirbagThPage = () => {
-  const images = [ug1,ug2];
+  const images = [airbagth1,airbagth2];
 
   return (
     <div>
@@ -20,7 +20,8 @@ const AirbagThPage = () => {
           </div>
 
           {/* product description */}
-       <ProductInfo productName="Airbags thermique" description="Les filtres glissières se trouvant à l’arrière des unités gainables qui doivent être tout le temps propres." />
+       <ProductInfo productName="Airbags thermique"
+        description="Les air-bag thermiques sont utilisés pour réduire les espaces vides dans une chambre froide pour les produits laitiers." />
     </div>
  </Flex>
 </Box>

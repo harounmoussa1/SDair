@@ -6,6 +6,7 @@ import {
   Heading,
   Stack,
   Input,
+  Button,
 } from "@chakra-ui/react";
 
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -31,10 +32,10 @@ const GetInTouch = () => {
     >
       <CardHeader>
         <Heading fontSize={{ base: "30px", md: "40px", lg: "45px" }} color="#004F87">
-          Get In Touch With Us
+        Prenez Contact Avec Nous,
         </Heading>
         <Text fontSize="md" color="#5A7CA9">
-          AND WE WILL GET BACK TO YOU
+         nous vous répondrons dans les plus brefs délais.
         </Text>
       </CardHeader>
 
@@ -43,16 +44,24 @@ const GetInTouch = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Input backgroundColor="#F4F4F4" h="51px" {...register("firstName")} placeholder="First Name" />
-                <Input backgroundColor="#F4F4F4" h="51px" {...register("lastName")} placeholder="Last Name" />
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("firstName")} placeholder="Prénom" />
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("lastName")} placeholder="Nom" />
               </div>
 
               <Input backgroundColor="#F4F4F4" h="51px" {...register("email")} placeholder="Email" />
-              <Input backgroundColor="#F4F4F4" h="51px" {...register("subject")} placeholder="Subject" />
-              <Input backgroundColor="#F4F4F4" h="127px" {...register("notes")} placeholder="Notes" />
+              <Input backgroundColor="#F4F4F4" h="51px" {...register("subject")} placeholder="Sujet" />
+              <Input backgroundColor="#F4F4F4" h="127px" {...register("notes")} placeholder="Description" />
 
-              <Input backgroundColor="#5A7CA9" w="135px" h="51px" type="submit" />
-            </div>
+              <Button
+              type="submit"
+              borderRadius="10px"
+              backgroundColor="#5A7CA9"
+              w="full"
+              h="51px"
+              color="white"
+              fontSize="lg"
+            >envoyer</Button>           
+             </div>
           </form>
         </Stack>
       </CardBody>

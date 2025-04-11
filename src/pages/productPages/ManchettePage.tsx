@@ -1,13 +1,11 @@
-import React from 'react'
-import ug1 from "../../assets/filtreUniteGainable/ug1.jpg"
-import ug2 from "../../assets/filtreUniteGainable/ug2.jpg"
+import manchette from "../../assets/manchette.jpeg"
 import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import ProductDetail from '../../components/productdetailpages/ProductDetailPage';
 import ProductInfo from '../../components/productdetailpages/ProductInfo';
 import ProductsSlide from '../../components/HomeComponent/ProductsSlide';
 import { products } from '../../constants';
 const ManchettePage = () => {
-  const images = [ug1,ug2];
+  const images = [manchette];
 
   return (
     <div>

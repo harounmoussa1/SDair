@@ -10,9 +10,12 @@ const Process = () => {
       </Center>
     <Center h="651px" w="full" bg="white" className='grid-cols-3 gap-30' >
        
-       <ProcessModal title={'Discussion'} subtitle={'Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dolor  consectetur ut labore.Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dol  consectetur ut labore.Lorem ipsum dolor '} icon={faComments} />
-       <ProcessModal title={'Installation'} subtitle={'Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dolor  consectetur ut labore.Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dol  consectetur ut labore.Lorem ipsum dolor '} icon={faGears} />
-       <ProcessModal title={'Maintenance'} subtitle={'Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dolor  consectetur ut labore.Lorem ipsum dolor sit amet, consectetur ut labore. Lorem ipsum dol  consectetur ut labore.Lorem ipsum dolor '} icon={faScrewdriverWrench} />
+       <ProcessModal title={"Bureau d'étude"}
+        subtitle={'Préparation des différents plans des produits en utilisant les outils informatiques les plus adéquats avec un personnel bien formé. '} icon={faComments} />
+       <ProcessModal title={'Fabrication'} 
+       subtitle={'Les machines utilisées pour la coupe, le montage par fil ou sans fil et le contrôle sont des opérations bien étudiées et planifiées afin de combiner entre qualité et efficience.'} icon={faGears} />
+       <ProcessModal title={'Entretien'} 
+       subtitle={'Les gaines textiles sont entretenu dans nos locaux et sont traitées pour leur donner une longue vie. '} icon={faScrewdriverWrench} />
 
    
 </Center>

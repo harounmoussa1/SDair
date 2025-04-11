@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, Heading, Image, Stack, Text, Flex, Link } from "@chakra-ui/react";
+import {  Card, CardBody, Heading, Image, Stack, Text, Flex, Link } from "@chakra-ui/react";
 
 interface ProduitModalProps {
   name: string;
@@ -41,7 +41,7 @@ const ProduitModal: React.FC<ProduitModalProps> = ({ name, description, imageUrl
               fontWeight="bold"
               _hover={{ bg: "blue.600" }}
             >
-              Learn more
+              Voir plus
             </Flex>
           </Link>
         </Flex>

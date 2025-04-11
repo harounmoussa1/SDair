@@ -36,7 +36,7 @@ const ContactPage = () => {
       <Center className="w-full mt-14 px-4 lg:px-0">
         <div className="w-full max-w-4xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d12973.09072848217!2d10.749156426411538!3d35.62100365444449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x13020f9eece33c61%3A0x54d0813bc5281d07!2sJemmel!3m2!1d35.624504099999996!2d10.7585984!5e0!3m2!1sfr!2stn!4v1739640853596!5m2!1sfr!2stn"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3242.8141468714416!2d10.745014!3d35.632308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sfr!2stn!4v1743670111898!5m2!1sfr!2stn"
             width="100%"
             height="400"
             loading="lazy"

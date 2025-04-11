@@ -12,7 +12,7 @@ export const Fondateur_Presentation ='Ben Lassoued Mohamed Riadh, ingénieur tex
 export const products = [
   {
     id: 1,
-    name: "Gain textiles",
+    name: "Gaines textiles",
     description: "Toute sorte de forme à savoir les circulaires, demi-circulaires, oblong, quart de cercle.",
     imageUrl: "/src/assets/productsImages/gain_a.JPG",
     link: "/produits/climatisation/gains-textiles",
@@ -28,14 +28,14 @@ export const products = [
     id: 3,
     name: "Manchettes souples",
     description: "Toute sorte de manchettes souples à savoir les rectangulaires-rectangulaire, de transformation rectangulaire- circulaires, rond-ronds, etc….",
-    imageUrl: "https://via.placeholder.com/350?text=MacBook+Pro+M3",
+    imageUrl: "/src/assets/manchette.jpeg",
     link: "/produits/climatisation/manchettes-souples",
   },
   {
     id: 4,
     name: "Couvercles de protection",
     description: "Industry-leading noise cancellation with superior sound quality.",
-    imageUrl: "/src/assets/productsImages/couvercle_p_a.jpg",
+    imageUrl: "/src/assets/couvercleImg/c1.jpeg",
     link: "/produits/isolation-thermique/couvercles",
   },
   {
@@ -49,14 +49,14 @@ export const products = [
   id: 6,
   name: "Airbags thermique",
   description: "Next-gen gaming with ray tracing and ultra-fast SSD.",
-  imageUrl: "https://via.placeholder.com/350?text=PlayStation+5",
+  imageUrl: "/src/assets/airbagImg/airbagth1.jpeg",
   link: "/produits/airbags",
 },
 {
   id: 7,
   name: "Tente à usage multiple",
   description: "Next-gen gaming with ray tracing and ultra-fast SSD.",
-  imageUrl: "https://via.placeholder.com/350?text=PlayStation+5",
+  imageUrl: "/src/assets/tenteIMG/couvercle1.jpg",
   link: "/produits/tente",
 },
 {

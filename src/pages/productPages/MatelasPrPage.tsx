@@ -24,7 +24,9 @@ const MatelasPrPage = () => {
 
           {/* product description */}
        <ProductInfo productName="Matelas de protection thermique" 
-       description="Next-gen gaming with ray tracing and ultra-fast SSD." />
+       description="La protection thermique des vannes permet d’isoler efficacement les équipements contre les pertes de chaleur, tout en assurant la sécurité du personnel contre les brûlures. Ces isolations sont conçues pour résister à des températures élevées et aux conditions extérieures (humidité, poussière, UV). Elles contribuent aussi à l'économie d’énergie dans les installations industrielles, réseaux de chauffage ou circuits de vapeur.
+
+Disponibles en plusieurs tailles et plusieurs épaisseurs, avec des housses amovibles pour un entretien facile." />
     </div>
  </Flex>
 </Box>

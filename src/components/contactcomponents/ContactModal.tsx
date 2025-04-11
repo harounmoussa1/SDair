@@ -15,7 +15,7 @@ const ContactModal = () => {
     <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl" 
       backgroundColor="gray.700" color="white" p="6">
       <CardHeader>
-        <Heading fontSize={{ base: "30px", md: "40px", lg: "45px" }}>Contact Us</Heading>
+        <Heading fontSize={{ base: "30px", md: "40px", lg: "45px" }}>Contactez-nous</Heading>
       </CardHeader>
 
       <CardBody>
@@ -25,7 +25,7 @@ const ContactModal = () => {
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
               Address
             </Heading>
-            <Text fontSize="16px">Surkhet, NP12 Birendranagar 06</Text>
+            <Text fontSize="16px">JPJW+W2 Jemmal, Tunisia</Text>
           </Box>
 
           <Box>
@@ -33,10 +33,20 @@ const ContactModal = () => {
               Phone
             </Heading>
             <Text fontSize="16px">
-              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +0098 9893 5647
+              <FontAwesomeIcon icon={faPhone} className="mr-2" />  +216 73 590 888 
+              
             </Text>
             <Text fontSize="16px">
-              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +0096 3434 5678
+              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +216 54 554 754 
+            </Text>
+            <Text fontSize="16px">
+              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +216  55 442 353  
+            </Text>
+            <Text fontSize="16px">
+              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +216 55 567 837 
+            </Text>
+            <Text fontSize="16px">
+              <FontAwesomeIcon icon={faPhone} className="mr-2" /> +216 21 666 159 
             </Text>
           </Box>
 
@@ -45,8 +55,7 @@ const ContactModal = () => {
               <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
               Email
             </Heading>
-            <Text fontSize="16px">codinglab@gmail.com</Text>
-            <Text fontSize="16px">info.codinglab@gmail.com</Text>
+            <Text fontSize="16px">sdairtn@gmail.com</Text>
           </Box>
         </Stack>
       </CardBody>

@@ -1,13 +1,15 @@
-import ug1 from "../../assets/filtreUniteGainable/ug1.jpg"
-import ug2 from "../../assets/filtreUniteGainable/ug2.jpg"
+
 import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import ProductDetail from '../../components/productdetailpages/ProductDetailPage';
 import ProductInfo from '../../components/productdetailpages/ProductInfo';
 import ProductsSlide from '../../components/HomeComponent/ProductsSlide';
 import { products } from '../../constants';
-
+import couvercle1 from "../../assets/tenteIMG/couvercle1.jpg"
+import couvercle2 from "../../assets/tenteIMG/couvercle2.jpg"
+import couvercle3 from "../../assets/tenteIMG/couvercle3.jpg"
+import new1 from "../../assets/tenteIMG/new1.jpeg"
 const TentePage = () => {
-  const images = [ug1,ug2];
+  const images = [couvercle1,couvercle2,couvercle3,new1];
 
   return (
     <div>
@@ -20,7 +22,8 @@ const TentePage = () => {
           </div>
 
           {/* product description */}
-       <ProductInfo productName="Tente à usage multiple" description="Les filtres glissières se trouvant à l’arrière des unités gainables qui doivent être tout le temps propres." />
+       <ProductInfo productName="Tente à usage multiple" 
+       description="Une tente à usage multiple est idéale pour les sorties en famille, les voyages, les pique-niques, les fêtes ou même comme abri temporaire à la maison. Facile à installer et à transporter, elle offre une bonne protection contre le soleil, le vent et la pluie. Fabriquée avec des matériaux solides, elle est conçue pour durer." />
     </div>
  </Flex>
 </Box>

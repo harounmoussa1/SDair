@@ -1,15 +1,14 @@
-import React from 'react'
 import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import ProductDetail from '../../components/productdetailpages/ProductDetailPage';
 import ProductInfo from '../../components/productdetailpages/ProductInfo';
 import ProductsSlide from '../../components/HomeComponent/ProductsSlide';
 import { products } from '../../constants';
-import couvercle1 from "../../assets/couvercleImg/couvercle1.jpg"
-import couvercle2 from "../../assets/couvercleImg/couvercle2.jpg"
-import couvercle3 from "../../assets/couvercleImg/couvercle3.jpg"
+import c1 from "../../assets/couvercleImg/c1.jpeg";
+import c2 from "../../assets/couvercleImg/c2.jpeg";
+import c3 from "../../assets/couvercleImg/c3.jpeg";
 
 const CouverclePrPage = () => {
-  const images = [couvercle1,couvercle2,couvercle3];
+  const images = [c1,c2,c3];
 
   return (
     <div>
@@ -22,7 +21,10 @@ const CouverclePrPage = () => {
           </div>
 
           {/* product description */}
-       <ProductInfo productName="Couvercles de protection" description="Industry-leading noise cancellation with superior sound quality." />
+       <ProductInfo productName="Couvercles de protection" 
+       description="Le couvercle de protection est conçu pour offrir une couverture fiable et sécurisée pour différents équipements, réservoirs, palettes ou dispositifs sensibles. Il protège contre la poussière, les débris, l'humidité et autres éléments extérieurs susceptibles d'endommager vos installations. Fabriqué en PVC, ce couvercle est idéal pour une utilisation industrielle, domestique ou dans des environnements extérieurs.
+
+Facile à installer et durable, il garantit la longévité de vos équipements et offre une protection simple mais efficace contre les risques physiques ou environnementaux." />
     </div>
  </Flex>
 </Box>

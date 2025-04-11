@@ -2,16 +2,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { IconType } from "react-icons";
+import { Link } from "react-router"; // <-- Make sure it's from react-router-dom
 
 interface SubMenu {
   name: string;
   icon?: IconType;
   subMenu?: SubMenu[];
+  path?: string;
 }
 
 interface MenuItem {
   name: string;
   subMenu?: SubMenu[];
+  path?: string;
 }
 
 interface MobMenuProps {
@@ -19,7 +22,7 @@ interface MobMenuProps {
 }
 
 export default function MobMenu({ Menus }: MobMenuProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState<number | null>(null);
   const [subClicked, setSubClicked] = useState<number | null>(null);
 
@@ -46,20 +49,29 @@ export default function MobMenu({ Menus }: MobMenuProps) {
         animate={{ x: isOpen ? "0%" : "-100%" }}
       >
         <ul>
-          {Menus.map(({ name, subMenu }, i) => {
+          {Menus.map(({ name, subMenu, path }, i) => {
             const isClicked = clicked === i;
             const hasSubMenu = subMenu?.length;
             return (
               <li key={name}>
-                <span
-                  className="flex-center-between p-4 hover:bg-white/5 rounded-md cursor-pointer relative"
-                  onClick={() => setClicked(isClicked ? null : i)}
-                >
-                  {name}
-                  {hasSubMenu && (
+                {hasSubMenu ? (
+                  <span
+                    className="flex-center-between p-4 hover:bg-white/5 rounded-md cursor-pointer relative"
+                    onClick={() => setClicked(isClicked ? null : i)}
+                  >
+                    {name}
                     <ChevronDown className={`ml-auto ${isClicked ? "rotate-180" : ""}`} />
-                  )}
-                </span>
+                  </span>
+                ) : (
+                  <Link
+                    to={path || "#"}
+                    className="block p-4 hover:bg-white/5 rounded-md cursor-pointer"
+                    onClick={toggleDrawer}
+                  >
+                    {name}
+                  </Link>
+                )}
+
                 {hasSubMenu && (
                   <motion.ul
                     initial="exit"
@@ -67,20 +79,29 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                     variants={subMenuDrawer}
                     className="ml-5"
                   >
-                    {subMenu.map(({ name, subMenu: nestedSubMenu }, j) => {
+                    {subMenu.map(({ name, path, subMenu: nestedSubMenu }, j) => {
                       const isSubClicked = subClicked === j;
                       const hasNestedSubMenu = nestedSubMenu?.length;
                       return (
                         <li key={name}>
-                          <span
-                            className="p-2 flex-center-between hover:bg-white/5 rounded-md cursor-pointer"
-                            onClick={() => setSubClicked(isSubClicked ? null : j)}
-                          >
-                            {name}
-                            {hasNestedSubMenu && (
+                          {hasNestedSubMenu ? (
+                            <span
+                              className="p-2 flex-center-between hover:bg-white/5 rounded-md cursor-pointer"
+                              onClick={() => setSubClicked(isSubClicked ? null : j)}
+                            >
+                              {name}
                               <ChevronDown className={`ml-auto ${isSubClicked ? "rotate-180" : ""}`} />
-                            )}
-                          </span>
+                            </span>
+                          ) : (
+                            <Link
+                              to={path || "#"}
+                              className="p-2 block hover:bg-white/5 rounded-md cursor-pointer"
+                              onClick={toggleDrawer}
+                            >
+                              {name}
+                            </Link>
+                          )}
+
                           {hasNestedSubMenu && (
                             <motion.ul
                               initial="exit"
@@ -88,12 +109,15 @@ export default function MobMenu({ Menus }: MobMenuProps) {
                               variants={subMenuDrawer}
                               className="ml-5"
                             >
-                              {nestedSubMenu.map(({ name }) => (
-                                <li
-                                  key={name}
-                                  className="p-2 flex-center hover:bg-white/5 rounded-md cursor-pointer"
-                                >
-                                  {name}
+                              {nestedSubMenu.map(({ name, path }) => (
+                                <li key={name}>
+                                  <Link
+                                    to={path || "#"}
+                                    className="p-2 block hover:bg-white/5 rounded-md cursor-pointer"
+                                    onClick={toggleDrawer}
+                                  >
+                                    {name}
+                                  </Link>
                                 </li>
                               ))}
                             </motion.ul>

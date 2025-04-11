@@ -34,8 +34,11 @@ const Footer = () => {
             <div className="flex items-center gap-3">
                 <div className="text-center">
                 <p className="font-bold">Contactez Nous</p>
-                <p className="text-sm">Par téléphone : +216 xx xxx xxx</p>
-                <p className="text-sm">Par émail : projects@jeeniso.com</p>
+                <p className="text-sm">
+                    Par téléphone : +216 73 590 888 
+                    +216 54 554 754 
+                    </p>
+                <p className="text-sm">Par émail :  sdairtn@gmail.com</p>
                 </div>
             </div>
             <p className="text-base">Copyright @2025 all rights reserved</p>

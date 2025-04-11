@@ -6,6 +6,7 @@ interface ProductInfoProps {
 }
 
 const ProductInfo = ({ productName, description  }: ProductInfoProps) => {
+  
   return (
    
      <Card
@@ -23,6 +24,7 @@ const ProductInfo = ({ productName, description  }: ProductInfoProps) => {
     <Heading fontSize={{ base: "15px", md: "20px", lg: "25px" }} color="black" fontFamily="montserrat">
         {description}
     </Heading>
+    
     </CardBody>
    </Card>
   );
