@@ -2,11 +2,11 @@ export const Menus = [
   { name: "Accueil", path: "/" },
   {
     name: "Nos Produits",
-    path: "/produits",
+   
     subMenu: [
       {
         name: "Climatisation",
-        path: "/produits/climatisation",
+        
         subMenu: [
           { name: "Gains textiles", path: "/produits/climatisation/gains-textiles" },
           { name: "Filtres pour les unités gainable", path: "/produits/climatisation/filtres" },
@@ -15,7 +15,7 @@ export const Menus = [
       },
       {
         name: "Isolation Thermique",
-        path: "/produits/isolation-thermique",
+        
         subMenu: [
           { name: "Couvercles de protection", path: "/produits/isolation-thermique/couvercles" },
           { name: "Matelas de protection thermique", path: "/produits/isolation-thermique/matelas" },

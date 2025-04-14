@@ -20,7 +20,7 @@ const AproposPage = () => {
     { name: 'Slide 3', avis: 'Review from Slide 3.' },
     { name: 'Slide 4', avis: 'Testimonial from Slide 4.' },
     { name: 'Slide 5', avis: 'Comment from Slide 5.' },
-    { name: 'Slide 6', avis: 'Opinion from Slide 6.' },
+  
   ];
 
   const { register, handleSubmit } = useForm<IFormInput>();

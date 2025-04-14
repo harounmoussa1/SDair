@@ -16,20 +16,26 @@ interface SlideSwiperProps {
 const SlideSwiper = ({ slides }: SlideSwiperProps) => {
   return (
     <Swiper
-      slidesPerView={1} // Default to 1 slide per view
-      spaceBetween={22}
+      slidesPerView={1}
+      spaceBetween={20}
       pagination={{ clickable: true }}
       modules={[Pagination]}
       className="mySwiper"
+      style={{
+        paddingBottom: "40px", // Adds space between slides and dots
+      }}
       breakpoints={{
         640: {
-          slidesPerView: 1, // 1 slide on small screens
+          slidesPerView: 1,
+          spaceBetween: 20,
         },
         768: {
-          slidesPerView: 2, // 2 slides on medium screens
+          slidesPerView: 2,
+          spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 3, // 3 slides on larger screens
+          slidesPerView: 3,
+          spaceBetween: 40,
         },
       }}
     >
@@ -42,15 +48,36 @@ const SlideSwiper = ({ slides }: SlideSwiperProps) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '20px',
             borderRadius: '10px',
             padding: '20px',
+            height: '100%', // Ensures slide content stays centered vertically
           }}
         >
-          <Box>
-            <Text fontSize="lg" fontWeight="bold">{slide.name}</Text>
-            <Box bg="white" h="217px" w="607px" mt="15px" display="flex" alignItems="center" justifyContent="center" borderRadius="8px">
-              <Text color="black" px={4} textAlign="center">{slide.avis}</Text>
+          <Box
+            w="full"
+            maxW="600px"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+          >
+            <Text fontSize="lg" fontWeight="bold" textAlign="center">
+              {slide.name}
+            </Text>
+
+            <Box
+              bg="white"
+              h={{ base: "200px", md: "217px" }}
+              w="full"
+              mt="15px"
+              px="4"
+              py="6"
+              borderRadius="8px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              textAlign="center"
+            >
+              <Text color="black">{slide.avis}</Text>
             </Box>
           </Box>
         </SwiperSlide>

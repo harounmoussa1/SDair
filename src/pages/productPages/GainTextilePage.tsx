@@ -65,8 +65,8 @@ const GainTextilePage = () => {
     </div>
  </Flex>
 </Box>
-<Heading mt={100} paddingLeft={360} color="#004F87">Autres Produits</Heading>
-<Center mt={10} marginRight={100}>
+<Center><Heading mt={20} paddingLeft={0} color="#004F87">Autres Produits</Heading>
+</Center><Center mt={0} marginRight={0}>
 <ProductsSlide slides={products.filter(product => product.id !== 1)} /> </Center>
  </div>
 )

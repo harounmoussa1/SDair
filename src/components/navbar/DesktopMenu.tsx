@@ -47,6 +47,11 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           <Link 
             to={menu.path || "#"} 
             className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-xl"
+            onClick={(e) => {
+              if (!menu.path) {
+                e.preventDefault(); // Prevent navigation when path is missing
+              }
+            }}
           >
             <span className="text-black">{menu.name}</span> 
             {menu.subMenu?.length && (
@@ -66,7 +71,12 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           <div className={`grid grid-cols-1 gap-x-4 gap-y-4 items-start`}>
             {menu.subMenu.map((submenu, i) => (
               <div key={i} className="relative cursor-pointer">
-                <Link to={submenu.path || "#"} className="font-semibold text-nowrap block hover:text-black">
+                
+                <Link to={submenu.path || "#"} className="font-semibold text-nowrap block hover:text-black" onClick={(e) => {
+    if (!submenu.path) {
+      e.preventDefault(); // Prevent navigation when path is missing
+    }
+  }}>
                   {submenu.name}
                 </Link>
                 {submenu.subMenu && (

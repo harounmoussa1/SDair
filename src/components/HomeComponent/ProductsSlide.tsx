@@ -20,31 +20,44 @@ interface SlideSwiperProps {
 const ProductsSlide: React.FC<SlideSwiperProps> = ({ slides }) => {
   return (
     <Swiper
-      slidesPerView={3}
-      spaceBetween={30} // Increased space for better layout
       pagination={{ clickable: true }}
       modules={[Pagination]}
       className="mySwiper"
-      style={{ width: "80%", height: "600px" }} // Controls overall Swiper size
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      }}
+      style={{ width: "100%", maxWidth: "1200px", paddingBottom: "60px" }}
     >
       {slides.map((product) => (
-        <SwiperSlide
-          key={product.id}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "400px", // Fixed width for uniformity
-            height: "550px", // Fixed height for uniformity
-          }}
-        >
-          <ProduitModal
-            name={product.name}
-            description={product.description}
-            imageUrl={product.imageUrl}
-            link={product.link}
-          />
-        </SwiperSlide>
+     <SwiperSlide
+     key={product.id}
+     className="flex justify-center items-center justify-items-center"
+   >
+     <div className="w-full max-w-[600px]">
+       <ProduitModal
+         name={product.name}
+         description={product.description}
+         imageUrl={product.imageUrl}
+         link={product.link}
+       />
+     </div>
+   </SwiperSlide>
+   
       ))}
     </Swiper>
   );

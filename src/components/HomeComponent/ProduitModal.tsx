@@ -1,4 +1,13 @@
-import {  Card, CardBody, Heading, Image, Stack, Text, Flex, Link } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  Flex,
+  Link,
+} from "@chakra-ui/react";
 
 interface ProduitModalProps {
   name: string;
@@ -7,26 +16,43 @@ interface ProduitModalProps {
   link: string;
 }
 
-const ProduitModal: React.FC<ProduitModalProps> = ({ name, description, imageUrl, link }) => {
+const ProduitModal: React.FC<ProduitModalProps> = ({
+  name,
+  description,
+  imageUrl,
+  link,
+}) => {
   return (
-    <Card h="550px" w="380px" boxShadow="lg" display="flex" flexDirection="column">
-      <CardBody display="flex" flexDirection="column" flex="1">
+    <Card
+      h="600px"
+      w="full" // Make it responsive
+      maxW="380px" // Max width for large screens
+      boxShadow="lg"
+      display="flex"
+      flexDirection="column"
+    >
+      <CardBody display="flex" flexDirection="column" flex="1" p="4">
+        {/* Product Image */}
         <Image
           src={imageUrl}
           alt={name}
           borderRadius="lg"
-          h="349px"
-          w="346px"
+          h="260px"
+          w="100%"
           objectFit="cover"
         />
-        <Stack mt="3" spacing="3" flex="1">
+
+        {/* Title + Description */}
+        <Stack mt="4" spacing="3" flex="1">
           <Heading size="md">{name}</Heading>
-          <Text flex="1">{description}</Text> 
+          <Text flex="1">{description}</Text>
         </Stack>
+
+        {/* Voir Plus Button */}
         <Flex justify="center" mt="auto">
-        <Link 
-            href={link} 
-            _hover={{ textDecoration: "none" }} 
+          <Link
+            href={link}
+            _hover={{ textDecoration: "none" }}
             w="full"
           >
             <Flex

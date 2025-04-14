@@ -21,7 +21,7 @@ const ProductInfo = ({ productName, description  }: ProductInfoProps) => {
         </Heading>
     </CardHeader>
     <CardBody>
-    <Heading fontSize={{ base: "15px", md: "20px", lg: "25px" }} color="black" fontFamily="montserrat">
+    <Heading fontSize={{ base: "15px", md: "20px", lg: "25px" }} color="black" fontFamily="montserrat" fontWeight="normal">
         {description}
     </Heading>
     
