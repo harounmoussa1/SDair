@@ -1,12 +1,13 @@
-import { CardBody, Center, Heading, Stack, Text, Image, Card, SimpleGrid, Box, Input, Flex, Link, IconButton, Button } from "@chakra-ui/react";
+import { CardBody, Center, Heading, Stack, Text, Image, Card, SimpleGrid, Box, Input, Flex, Link, IconButton, Button, useToast, Textarea } from "@chakra-ui/react";
 import SecondHeader from "../components/navbar/SecondHeader";
 import { Fondateur_Presentation, ABOUT_TEXT } from '../constants/index.ts';
 import Fondateur from "../assets/Fondateur.png";
 import entreprise from "../assets/entreprise.png";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
-import SlideSwiper from "../components/contactcomponents/SlideSwiper";
+import SlideSwiper, { Slide } from "../components/contactcomponents/SlideSwiper";
 import { SubmitHandler, useForm } from "react-hook-form";
-
+import { useEffect, useState } from "react";
+import { client } from  "../sanity/sanityClient.ts";
 interface IFormInput {
   Name: string;
   avis: string;
@@ -14,17 +15,69 @@ interface IFormInput {
 }
 
 const AproposPage = () => {
-  const slidesData = [
-    { name: 'Client XXX', avis: 'This is a testimonial from Client XXX.' },
-    { name: 'Slide 2', avis: 'Feedback from Slide 2.' },
-    { name: 'Slide 3', avis: 'Review from Slide 3.' },
-    { name: 'Slide 4', avis: 'Testimonial from Slide 4.' },
-    { name: 'Slide 5', avis: 'Comment from Slide 5.' },
-  
-  ];
+  const [slidesData, setSlidesData] = useState<Slide[]>([]);
+  const toast = useToast();
+  const [loading, setLoading] = useState(false);
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
 
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    try {
+      setLoading(true);
+
+      await client.create({
+        _type: 'userOpinion',
+        name: data.Name,
+        email: data.email,
+        avis: data.avis,
+        
+      });
+
+      toast({
+        title: "Avis envoyé!",
+        description: "Merci pour votre avis. Il sera publié après validation.",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      });
+
+      reset(); // clear the form
+    } catch (err) {
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer.",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+      });
+      console.error("Sanity error", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
+
+  useEffect(() => {
+    const fetchOpinions = async () => {
+      try {
+        const data = await client.fetch(`*[_type == "publicOpinion"]{
+          name,
+          avis
+        }`);
+        setSlidesData(data);
+      } catch (error) {
+        console.error("Erreur de chargement des avis :", error);
+      }
+    };
+
+    fetchOpinions();
+  }, []);
+
+
+
+
+
 
   return (
     <div>
@@ -116,7 +169,7 @@ const AproposPage = () => {
             color="#004F87"
           />
         </Link>
-        <Link href="https://www.linkedin.com/company/sdair-heating-and-air-conditioning/?originalSubdomain=fr" isExternal>
+        <Link href="https://www.linkedin.com/in/ben-lassoued-riadh-830ba3123/" isExternal>
           <IconButton
             icon={<FaLinkedin />}
             aria-label="LinkedIn Profile"
@@ -138,7 +191,11 @@ const AproposPage = () => {
         </Heading>
       </Center>
 <Center mt={20}>
-  <SlideSwiper slides={slidesData} />
+{slidesData.length > 0 ? (
+    <SlideSwiper slides={slidesData} />
+  ) : (
+    <Text>Chargement des avis...</Text>
+  )}
 </Center>
 
 {/* Form Section */}
@@ -154,6 +211,8 @@ const AproposPage = () => {
           {...register("Name")}
           borderRadius="10px"
           placeholder="Nom De L'Entreprise"
+          color="black"
+          required
         />
       </div>
       <div>
@@ -164,17 +223,23 @@ const AproposPage = () => {
           borderRadius="10px"
           {...register("email")}
           placeholder="Email"
+          color="black"
+          type="email"
+          required
         />
       </div>
     </div>
     <div>
-      <Input
+      <Textarea
         h="51px"
         w="full"
         backgroundColor="#F4F4F4"
         borderRadius="10px"
         {...register("avis")}
         placeholder="Insérer Votre Avis"
+        color="black"
+        required
+        resize="none"
       />
     </div>
     <Button
@@ -185,7 +250,12 @@ const AproposPage = () => {
       h="51px"
       color="white"
       fontSize="lg"
-    >envoyer</Button>
+      _hover={{
+        color: "#5A7CA9", 
+        textColor:"white"
+      }}
+      
+    >Envoyer</Button>
   </form>
 </Center>
 

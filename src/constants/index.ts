@@ -19,7 +19,7 @@ export const products = [
   },
   {
     id: 2,
-    name: "Filtres pour les unités gainable",
+    name: "Filtres pour les unités gainables",
     description: "Les filtres glissières se trouvant à l’arrière des unités gainables qui doivent être tout le temps propres.",
     imageUrl: "/src/assets/productsImages/filtre_a.jpg",
     link: "/produits/climatisation/filtres",
@@ -47,7 +47,7 @@ export const products = [
   },
   {
   id: 6,
-  name: "Airbags thermique",
+  name: "Airbags thermiques",
   description: "Les air-bag thermiques sont utilisés pour réduire les espaces vides dans une chambre froide pour les produits laitiers",
   imageUrl: "/src/assets/airbagImg/airbagth1.jpeg",
   link: "/produits/airbags",

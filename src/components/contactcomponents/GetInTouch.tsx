@@ -7,9 +7,11 @@ import {
   Stack,
   Input,
   Button,
+  Textarea,
 } from "@chakra-ui/react";
 
 import { SubmitHandler, useForm } from "react-hook-form";
+import { client } from  "../../sanity/sanityClient";
 
 interface IFormInput {
   firstName: string;
@@ -20,8 +22,23 @@ interface IFormInput {
 }
 
 const GetInTouch = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
+
+const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+  try {
+    await client.create({
+      _type: 'contact',
+      ...data,
+      submittedAt: new Date().toISOString(),
+    });
+    alert('Votre message a été envoyé avec succès !');
+    reset(); // ← clear form fields
+  } catch (err) {
+    console.error(err);
+    alert("Une erreur s'est produite. Veuillez réessayer.");
+  }
+};
+
 
   return (
     <Card
@@ -44,14 +61,21 @@ const GetInTouch = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Input backgroundColor="#F4F4F4" h="51px" {...register("firstName")} placeholder="Prénom" />
-                <Input backgroundColor="#F4F4F4" h="51px" {...register("lastName")} placeholder="Nom" />
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("firstName")} placeholder="Prénom" color="black" required/>
+                <Input backgroundColor="#F4F4F4" h="51px" {...register("lastName")} placeholder="Nom" color="black" required/>
               </div>
 
-              <Input backgroundColor="#F4F4F4" h="51px" {...register("email")} placeholder="Email" />
-              <Input backgroundColor="#F4F4F4" h="51px" {...register("subject")} placeholder="Sujet" />
-              <Input backgroundColor="#F4F4F4" h="127px" {...register("notes")} placeholder="Description" />
-
+              <Input backgroundColor="#F4F4F4" h="51px" {...register("email")} placeholder="Email" color="black" type="email" required/>
+              <Input backgroundColor="#F4F4F4" h="51px" {...register("subject")} placeholder="Sujet" color="black" required/>
+              <Textarea
+  backgroundColor="#F4F4F4"
+  h="127px"
+  {...register("notes")}
+  placeholder="Description"
+  color="black"
+  resize="none" // optional: prevents resizing by user
+  required
+/>
               <Button
               type="submit"
               borderRadius="10px"

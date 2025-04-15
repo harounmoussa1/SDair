@@ -8,8 +8,8 @@ export const Menus = [
         name: "Climatisation",
         
         subMenu: [
-          { name: "Gains textiles", path: "/produits/climatisation/gains-textiles" },
-          { name: "Filtres pour les unités gainable", path: "/produits/climatisation/filtres" },
+          { name: "Gaines textiles", path: "/produits/climatisation/gains-textiles" },
+          { name: "Filtres pour les unités gainables", path: "/produits/climatisation/filtres" },
           { name: "Manchettes souples", path: "/produits/climatisation/manchettes-souples" },
         ],
       },
@@ -21,7 +21,7 @@ export const Menus = [
           { name: "Matelas de protection thermique", path: "/produits/isolation-thermique/matelas" },
         ],
       },
-      { name: "Airbags thermique", path: "/produits/airbags" },
+      { name: "Airbags thermiques", path: "/produits/airbags" },
       { name: "Tente à usage multiple", path: "/produits/tente" },
       { name: "Jeux Gonflables", path: "/produits/jeux-gonflables" },
     ],

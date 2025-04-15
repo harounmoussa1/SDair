@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { Box, Text } from '@chakra-ui/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
-type Slide = {
+
+export type Slide = {
   name: string;
   avis: string;
 };
@@ -22,7 +21,10 @@ const SlideSwiper = ({ slides }: SlideSwiperProps) => {
       modules={[Pagination]}
       className="mySwiper"
       style={{
-        paddingBottom: "40px", // Adds space between slides and dots
+        paddingBottom: "40px",
+        width: '100%', // Ensure the Swiper takes the full width
+        maxWidth: '100%'
+         // Adds space between slides and dots
       }}
       breakpoints={{
         640: {
@@ -40,47 +42,47 @@ const SlideSwiper = ({ slides }: SlideSwiperProps) => {
       }}
     >
       {slides.map((slide, index) => (
-        <SwiperSlide
-          key={index}
-          style={{
-            backgroundColor: '#EEF1F6',
-            color: 'black',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '10px',
-            padding: '20px',
-            height: '100%', // Ensures slide content stays centered vertically
-          }}
-        >
-          <Box
-            w="full"
-            maxW="600px"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-            <Text fontSize="lg" fontWeight="bold" textAlign="center">
-              {slide.name}
-            </Text>
-
-            <Box
-              bg="white"
-              h={{ base: "200px", md: "217px" }}
-              w="full"
-              mt="15px"
-              px="4"
-              py="6"
-              borderRadius="8px"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              textAlign="center"
-            >
-              <Text color="black">{slide.avis}</Text>
-            </Box>
-          </Box>
-        </SwiperSlide>
+     <SwiperSlide
+     key={index}
+     style={{
+       display: 'flex',
+       justifyContent: 'center',
+     }}
+   >
+     <Box
+       w="full"
+       maxW={{ base: "90%", sm: "500px", md: "600px", lg: "850px" }}
+       bg="#EEF1F6"
+       color="black"
+       borderRadius="10px"
+       padding="20px"
+     >
+       <Text fontSize="lg" fontWeight="bold" textAlign="center">
+         {slide.name}
+       </Text>
+   
+       <Box
+         bg="white"
+         h={{ base: "200px", md: "217px" }}
+         w="full"
+         mt="15px"
+         px="4"
+         py="6"
+         borderRadius="8px"
+         display="flex"
+         alignItems="center"
+         justifyContent="center"
+         textAlign="center"
+         overflow="hidden"
+         maxW={{ base: "90%", sm: "500px", md: "600px", lg: "950px" }}
+       >
+         <Text color="black" wordBreak="break-word" whiteSpace="normal">
+           {slide.avis}
+         </Text>
+       </Box>
+     </Box>
+   </SwiperSlide>
+   
       ))}
     </Swiper>
   );

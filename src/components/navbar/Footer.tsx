@@ -56,7 +56,7 @@ const Footer = () => {
                 >
                   <span>{menu.name}</span>
                   <ChevronDown
-                    className={`transition-transform duration-200 ml-1 ${openMenu === i ? "rotate-180" : ""}`}
+                    className={`transition-transform duration-200 ml-1 ${openMenu === i ? "rotate-270" : ""}`}
                     size={14}
                   />
                 </button>
@@ -82,7 +82,7 @@ const Footer = () => {
                             <span>{sub.name}</span>
                             <ChevronDown
                               className={`transition-transform duration-200 ml-1 ${
-                                openSubMenuKey === `${i}-${j}` ? "rotate-180" : ""
+                                openSubMenuKey === `${i}-${j}` ? "rotate-270" : ""
                               }`}
                               size={12}
                             />
