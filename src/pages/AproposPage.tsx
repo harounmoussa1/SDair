@@ -17,7 +17,7 @@ interface IFormInput {
 const AproposPage = () => {
   const [slidesData, setSlidesData] = useState<Slide[]>([]);
   const toast = useToast();
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {

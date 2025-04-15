@@ -2,8 +2,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import ProduitModal from "./ProduitModal";
-import "swiper/css";
-import "swiper/css/pagination";
+
+import 'swiper/swiper-bundle.css';
+
+
 
 interface Product {
   id: number;
