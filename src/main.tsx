@@ -14,12 +14,10 @@ import MatelasPrPage from './pages/productPages/MatelasPrPage.tsx'
 import TentePage from './pages/productPages/TentePage.tsx'
 import Layout from './Layout.tsx'
 import { ChakraProvider } from '@chakra-ui/react'
-import Analytics from "./Analytics";
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
   <ChakraProvider>
-  <Analytics />
   <Routes>
   <Route path="/" element={<Layout />}>
       <Route path="/" element={<App />} />
