@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants, easeIn, easeOut } from "framer-motion";
 import { IconType } from "react-icons";
 import { Link } from "react-router";
 
@@ -26,16 +26,21 @@ interface DesktopMenuProps {
 export default function DesktopMenu({ menu }: DesktopMenuProps) {
   const [isHover, setIsHover] = useState(false);
 
-  const subMenuAnimate = {
+  const subMenuAnimate: Variants = {
     hidden: { opacity: 0, y: -10, rotateX: -15, display: "none" },
     visible: {
       opacity: 1,
       y: 10,
       rotateX: 0,
       display: "block",
-      transition: { duration: 0.3, ease: "easeOut" },
+      transition: { duration: 0.3, ease: easeOut }, // <-- fixed
     },
-    exit: { opacity: 0, y: -10, rotateX: -15, transition: { duration: 0.3, ease: "easeIn" } },
+    exit: {
+      opacity: 0,
+      y: -10,
+      rotateX: -15,
+      transition: { duration: 0.3, ease: easeIn }, // <-- fixed
+    },
   };
 
   return (
@@ -44,21 +49,18 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-          <Link 
-            to={menu.path || "#"} 
-            className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-xl"
-            onClick={(e) => {
-              if (!menu.path) {
-                e.preventDefault(); // Prevent navigation when path is missing
-              }
-            }}
-          >
-            <span className="text-black">{menu.name}</span> 
-            {menu.subMenu?.length && (
-              <ChevronDown className="mt-[0.6px] transition-transform duration-200 group-hover/link:rotate-180 text-black" />
-            )}
-          </Link>
-
+      <Link
+        to={menu.path || "#"}
+        className="flex items-center gap-1 cursor-pointer px-3 py-1 rounded-xl"
+        onClick={(e) => {
+          if (!menu.path) e.preventDefault();
+        }}
+      >
+        <span className="text-black">{menu.name}</span>
+        {menu.subMenu?.length && (
+          <ChevronDown className="mt-[0.6px] transition-transform duration-200 group-hover/link:rotate-180 text-black" />
+        )}
+      </Link>
 
       {menu.subMenu?.length && (
         <motion.div
@@ -68,21 +70,26 @@ export default function DesktopMenu({ menu }: DesktopMenuProps) {
           exit="exit"
           variants={subMenuAnimate}
         >
-          <div className={`grid grid-cols-1 gap-x-4 gap-y-4 items-start`}>
+          <div className="grid grid-cols-1 gap-x-4 gap-y-4 items-start">
             {menu.subMenu.map((submenu, i) => (
               <div key={i} className="relative cursor-pointer">
-                
-                <Link to={submenu.path || "#"} className="font-semibold text-nowrap block hover:text-black" onClick={(e) => {
-    if (!submenu.path) {
-      e.preventDefault(); // Prevent navigation when path is missing
-    }
-  }}>
+                <Link
+                  to={submenu.path || "#"}
+                  className="font-semibold text-nowrap block hover:text-black"
+                  onClick={(e) => {
+                    if (!submenu.path) e.preventDefault();
+                  }}
+                >
                   {submenu.name}
                 </Link>
                 {submenu.subMenu && (
                   <div className="ml-4 mt-2 space-y-2">
                     {submenu.subMenu.map((subItem, j) => (
-                      <Link key={j} to={subItem.path || "#"} className="text-sm text-gray-400 block hover:text-black">
+                      <Link
+                        key={j}
+                        to={subItem.path || "#"}
+                        className="text-sm text-gray-400 block hover:text-black"
+                      >
                         {subItem.name}
                       </Link>
                     ))}
