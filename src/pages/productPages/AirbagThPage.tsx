@@ -11,6 +11,17 @@ const AirbagThPage = () => {
 
   return (
     <div>
+      
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EENV77MR14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EENV77MR14');
+</script>
+
   <Box display="flex" justifyContent="center" alignItems="center" w="100%" mt="10">
   <Flex justify="center" align="center" mt="50px" gap="50px" flexWrap="wrap">
   <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 w-full items-center">
