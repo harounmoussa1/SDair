@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export default function Analytics() {
   useEffect(() => {
     const script1 = document.createElement("script");
-    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
+    script1.src = "https://www.googletagmanager.com/gtag/js?id=G-EENV77MR14";
     script1.async = true;
     document.head.appendChild(script1);
 
